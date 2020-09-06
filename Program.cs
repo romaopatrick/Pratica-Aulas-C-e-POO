@@ -1,25 +1,29 @@
 ﻿using System;
 
-namespace Ex_1
+namespace Ex_4
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Pessoa[] p = new Pessoa[2];
-            Livro[] l = new Livro[3];
+            Video[] v = new Video[3];
+            v[0] = new Video("Aula 1 de POO");
+            v[1] = new Video("Aula 12 de PHP");
+            v[2] = new Video("Aula 10 de HTML5");
 
-            p[0] = new Pessoa("Pedro", 22,"M");
-            p[1] = new Pessoa("Maria", 25, "F");
+            Console.WriteLine(v[0].Status());
+            Gafanhoto[] g = new Gafanhoto[2];
 
-            l[0] = new Livro("Aprendendo C#", "José da Silva", 300, p[0]);
-            l[1] = new Livro("POO Para Iniciantes", "Pedro Paulo", 500, p[1]);
-            l[2] = new Livro("Java Avançado", "Maria Candido", 800, p[0]);
+            g[0] = new Gafanhoto("Jubileu", 22, 'M', "Juba");
+            g[1] = new Gafanhoto("Creuza", 12, 'F', "Creuzita");
 
-            l[0].Abrir();
-            l[0].Folhear(400);
-            Console.WriteLine(l[0].Detalhes());
-            Console.WriteLine(l[1].Detalhes());
+            Visualizacao[] vis = new Visualizacao[5];
+            vis[0] = new Visualizacao(g[0],v[2]);
+            vis[0].Avaliar();
+            Console.WriteLine(vis[0].ToString());
+            vis[1] = new Visualizacao(g[0],v[1]);
+            vis[1].Avaliar(90.0f);
+            Console.WriteLine(vis[1].ToString());
         }
     }
 }
