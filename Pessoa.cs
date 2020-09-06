@@ -1,8 +1,9 @@
+using System.Text;
 using System;
 
 namespace Ex_1
 {
-    public class Pessoa
+    public abstract class Pessoa
     {
         private string nome;
         public string Nome
@@ -22,20 +23,14 @@ namespace Ex_1
             get { return sexo; }
             set { sexo = value; }
         }
-        
-        public Pessoa(string name, int age, string genre)
-        {
-            this.Nome=name;
-            this.Idade=age;
-            this.Sexo=genre;
-        }
-        public void FazerAniver()
+        public void  FazerAniver()
         {
             this.Idade ++;
         }
-        
-
-
-
+        public String Detalhes()
+        {
+            return "Pessoa{" + "\n Nome: " + this.Nome + "\n Idade: " 
+            + this.Idade + "\n Sexo: " + this.Sexo + "\n}";
+        }
     }
 }
