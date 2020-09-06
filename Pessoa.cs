@@ -1,41 +1,47 @@
-using System;
-
-namespace Ex_1
+namespace Ex_4
 {
-    public class Pessoa
+    public abstract class Pessoa
     {
-        private string nome;
+        protected string nome;
         public string Nome
         {
-            get { return nome; }
-            set { nome = value; }
+            get { return nome;}
+            set { nome = value;}
         }
-        private int idade;
+        protected int idade;
         public int Idade
         {
-            get { return idade; }
-            set { idade = value; }
+            get { return idade;}
+            set { idade = value;}
         }
-        private string sexo;
-        public string Sexo
+        protected char sexo;
+        public char Sexo
         {
             get { return sexo; }
             set { sexo = value; }
         }
-        
-        public Pessoa(string name, int age, string genre)
+        protected float experiencia;
+        public float Experiencia
         {
-            this.Nome=name;
-            this.Idade=age;
-            this.Sexo=genre;
+            get { return experiencia; }
+            set { experiencia = value; }
         }
-        public void FazerAniver()
+        public Pessoa (string name, int age, char genre)
         {
-            this.Idade ++;
+            this.Nome = name;
+            this.Idade = age;
+            this.Sexo = genre;
+            this.Experiencia = 0;
+
         }
-        
-
-
-
+        protected void GanharExp()
+        {
+            this.Experiencia ++;
+        }
+        public virtual string Status()
+        {
+            return "Gafanhoto:\n{" + "\n Nome: " + this.Nome + "\n Idade: " + this.Idade + "\n Sexo: "
+            + this.Sexo + "\n}";
+        }
     }
 }
